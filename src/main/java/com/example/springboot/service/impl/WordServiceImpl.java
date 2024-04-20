@@ -1,8 +1,6 @@
 package com.example.springboot.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.springboot.mapper.WordMapper;
 import com.example.springboot.pojo.Words;
@@ -30,6 +28,9 @@ public class WordServiceImpl extends ServiceImpl<WordMapper, Words> implements W
 
     @Override
     public List<Words> findAllWordsByBookId(Integer bookId) {
-        return wordMapper.findAllWordsByBookId(bookId);
+        QueryWrapper<Words> queryWrapper = new QueryWrapper<Words>()
+                .exists("select 1 from wordbook_words where " +
+                        "wordbook_words.word_id = id and wordbook_id = " + bookId);
+        return wordMapper.selectList(queryWrapper);
     }
 }
