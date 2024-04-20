@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.springboot.mapper.WordMapper">
-<!--    <resultMap id="WordMap" type="com.example.springboot.pojo.Words">-->
-<!--        <id column="id" property="id"/>-->
-<!--        <result column="ukPhonetic" property="ukPhonetic"/>-->
-<!--        <result column="usPhonetic" property="usPhonetic"/>-->
-<!--        <result column="word" property="word"/>-->
-<!--        <association property="translation" javaType="com.example.springboot.pojo.Translation">-->
-<!--            <result property="meanings" javaType="java.util.ArrayList"/>-->
-<!--        </association>-->
-<!--    </resultMap>-->
     <select id="findWordById">
         select * from words where id = #{id}
     </select>

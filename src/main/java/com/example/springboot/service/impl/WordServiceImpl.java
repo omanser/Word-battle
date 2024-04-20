@@ -16,7 +16,7 @@ public class WordServiceImpl extends ServiceImpl<WordMapper, Words> implements W
     private WordMapper wordMapper;
     @Override
     public Words findWordById(Integer id) {
-        return wordMapper.findWordById(id);
+        return wordMapper.selectById(id);
     }
 
     @Override
