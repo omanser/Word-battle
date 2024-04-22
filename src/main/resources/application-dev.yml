@@ -4,6 +4,10 @@ spring:
     url: jdbc:mysql://8.134.162.247:3306/word_battle?useSSL=false&serverTimezone=Asia/Shanghai
     username: Harisy
     password: 123456
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 150MB
 #    type: com.alibaba.druid.pool.DruidDataSource
 #    druid:
 #      driver-class-name: com.mysql.cj.jdbc.Driver

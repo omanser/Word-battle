@@ -21,7 +21,7 @@ public class WebSocketConfig /*implements WebSocketConfigurer*/ {
         return new MyWebSocketHandler();
     }
 
-    //@Bean
+    @Bean
     public ServerEndpointExporter serverEndpointExporter() {
         return new ServerEndpointExporter();
     }
