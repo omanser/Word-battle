@@ -12,14 +12,14 @@ import java.time.LocalDateTime;
 public class User {
     private String id;
     private String username;
-    private String userPicUrl;
+    private String userPicUrl = "http://lc-qtElbL7m.cn-n1.lcfile.com/Q3gKiYJm5xc0zCRuM9wBGbveOq3c7cUW/72f298b9_E880884_d0f63115.png";
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 
     public User(String id, String username) {
         this.id = id;
         this.username = username;
-        this.createTime = LocalDateTime.now();
-        this.updateTime = LocalDateTime.now();
+        createTime = LocalDateTime.now();
+        updateTime = LocalDateTime.now();
     }
 }

@@ -24,7 +24,7 @@ public class UserController {
             userService.save(user);
             return Result.success();
         } else {
-            return Result.error("用户已存在");
+            return Result.error(1,"用户已存在");
         }
     }
     @PutMapping("/updateName")
@@ -36,7 +36,7 @@ public class UserController {
             userService.updateById(user);
             return Result.success();
         } else {
-            return Result.error("用户不存在");
+            return Result.error(1,"用户不存在");
         }
     }
     @PatchMapping("/updateUrl")
@@ -48,7 +48,19 @@ public class UserController {
             userService.updateById(user);
             return Result.success();
         } else {
-            return Result.error("用户不存在");
+            return Result.error(1,"用户不存在");
         }
+    }
+    @GetMapping("get_score_rank")
+    public Result getScoreRank(Integer bookId) {
+        return Result.success(userService.getScoreRank(bookId));
+    }
+    @GetMapping("/getUser")
+    public Result getUser(String userId) {
+        User user = userService.getOne(new QueryWrapper<User>().eq("id", userId));
+        if (user != null) {
+            return Result.success(user);
+        }
+        return Result.error(1,"用户不存在");
     }
 }

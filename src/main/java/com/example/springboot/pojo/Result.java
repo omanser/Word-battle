@@ -24,7 +24,10 @@ public class Result<T> {
     public static Result success(){
         return new Result(0, "success", null);
     }
-    public static Result error(String message){
-        return new Result(1, message, null);
+    public static <E> Result<E> success(Integer code, E data){
+        return new Result<>(code, "类别", data);
+    }
+    public static Result error(Integer code, String message){
+        return new Result(code, message, null);
     }
 }

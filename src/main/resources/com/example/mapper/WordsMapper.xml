@@ -4,11 +4,4 @@
     <select id="findWordById">
         select * from words where id = #{id}
     </select>
-    <select id="findAllWordsByBookId">
-        select * from words
-        inner join wordbook_words
-        on id = wordbook_words.word_id
-        where wordbook_words.wordbook_id = #{bookId}
-        limit 10
-    </select>
 </mapper>

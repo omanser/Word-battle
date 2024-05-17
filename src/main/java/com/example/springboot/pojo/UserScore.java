@@ -3,6 +3,7 @@ package com.example.springboot.pojo;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.jeffreyning.mybatisplus.anno.MppMultiId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,10 @@ public class UserScore {
     @MppMultiId
     private Integer wordBookId;
     private Integer score;
+    private Integer winNum;
+    private Integer loseNum;
+    private Integer winAiNum;
+    private Integer loseAiNum;
     private LocalDateTime updateTime;
 
     public UserScore(String userId, Integer bookId, Integer score) {

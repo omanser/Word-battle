@@ -1,5 +1,6 @@
 package com.example.springboot.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.websocket.Session;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,9 +14,13 @@ import java.io.IOException;
 @AllArgsConstructor
 @Builder
 public class OnlineUser {
-    private String username;
-    private Long roomId;
-    private Session session;
+    private String username; //用户名
+    private Long roomId; // 房间号
+    private Integer userScore; // 用户得分
+    @JsonIgnore
+    private Boolean isSelect;
+    @JsonIgnore
+    private Session session; // 用户连接的session
 
     public void closeSession() {
         try {
@@ -27,5 +32,4 @@ public class OnlineUser {
             System.err.println("关闭 Session 时出错: " + e.getMessage());
         }
     }
-
 }

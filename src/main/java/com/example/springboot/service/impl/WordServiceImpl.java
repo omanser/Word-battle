@@ -1,6 +1,7 @@
 package com.example.springboot.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.springboot.mapper.WordMapper;
 import com.example.springboot.pojo.Words;
@@ -32,5 +33,13 @@ public class WordServiceImpl extends ServiceImpl<WordMapper, Words> implements W
                 .exists("select 1 from wordbook_words where " +
                         "wordbook_words.word_id = id and wordbook_id = " + bookId);
         return wordMapper.selectList(queryWrapper);
+    }
+    @Override
+    public IPage<Words> findWordPage(IPage<Words> page, QueryWrapper<Words> queryWrapper) {
+        return wordMapper.selectPage(page, queryWrapper);
+    }
+    @Override
+    public long selectCount(QueryWrapper<Words> queryWrapper){
+        return wordMapper.selectCount(queryWrapper);
     }
 }
